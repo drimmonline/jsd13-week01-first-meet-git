@@ -1,148 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>เว็บไซต์เติมเกม</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
-  <nav class="navbar">
-    <div class="logo">🎮 TopUp Game</div>
-    <ul class="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Project</a></li>
-      <li><a href="#">Login</a></li>
-    </ul>
-    <button class="btn-login">Login</button>
-  </nav>
-
-  <div class="container">
-
-    <h1>🎮 เว็บไซต์เติมเกม</h1>
-    <p class="subtitle">บริการเติมเกมออนไลน์ 24 ชั่วโมง สะดวกรวดเร็ว ปลอดภัย</p>
-
-    <hr />
-
-    <h2>📊 รายรับรายจ่าย</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>รายการ</th>
-          <th>รายรับ (฿)</th>
-          <th>รายจ่าย (฿)</th>
-          <th>วันที่</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>เติมเงินเข้า wallet</td>
-          <td>500</td>
-          <td>-</td>
-          <td>01/07/2026</td>
-        </tr>
-        <tr>
-          <td>ซื้อ 100 Diamonds</td>
-          <td>-</td>
-          <td>90</td>
-          <td>01/07/2026</td>
-        </tr>
-        <tr>
-          <td>เติมเงินเข้า wallet</td>
-          <td>1,000</td>
-          <td>-</td>
-          <td>30/06/2026</td>
-        </tr>
-        <tr>
-          <td>ซื้อ 500 Diamonds</td>
-          <td>-</td>
-          <td>420</td>
-          <td>29/06/2026</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <hr />
-
-    <h2>🕹️ 1. เลือกเกมที่ต้องการเติม</h2>
-    <ul class="game-list">
-      <li><strong>เกมที่ 1:</strong> ROV</li>
-      <li><strong>เกมที่ 2:</strong> PUBG Mobile</li>
-      <li><strong>เกมที่ 3:</strong> Free Fire</li>
-    </ul>
-
-    <hr />
-
-    <h2>📝 2. กรอกข้อมูลผู้ใช้งาน</h2>
-    <div class="form-group">
-      <label for="uid">UID / ไอดีผู้ใช้</label>
-      <input type="text" id="uid" placeholder="กรอก UID หรือไอดีผู้ใช้" />
-    </div>
-    <div class="form-group">
-      <label>ช่องทางการชำระเงิน</label>
-      <ul class="payment-options">
-        <li>
-          <label>
-            <input type="radio" name="payment" value="bank" checked />
-            ธนาคารโอนเงิน
-          </label>
-        </li>
-        <li>
-          <label>
-            <input type="radio" name="payment" value="promptpay" />
-            PromptPay QR Code
-          </label>
-        </li>
-        <li>
-          <label>
-            <input type="radio" name="payment" value="truemoney" />
-            TrueMoney Wallet
-          </label>
-        </li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>เว็บไซต์เติมเกม</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">🎮 TopUp Game</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Project</a></li>
+        <li><a href="#">Login</a></li>
       </ul>
+      <button class="btn-login">Login</button>
+    </nav>
+
+    <div class="container">
+      <h1>🎮 เว็บไซต์เติมเกม</h1>
+      <p class="subtitle">
+        บริการเติมเกมออนไลน์ 24 ชั่วโมง สะดวกรวดเร็ว ปลอดภัย
+      </p>
+
+      <hr />
+
+      <h2>🕹️ 1. เลือกเกมที่ต้องการเติม</h2>
+      <ul class="game-list">
+        <li><strong>เกมที่ 1:</strong> ROV</li>
+        <li><strong>เกมที่ 2:</strong> PUBG Mobile</li>
+        <li><strong>เกมที่ 3:</strong> Free Fire</li>
+      </ul>
+
+      <hr />
+
+      <h2>📝 2. กรอกข้อมูลผู้ใช้งาน</h2>
+      <div class="form-group">
+        <label for="uid">UID / ไอดีผู้ใช้</label>
+        <input type="text" id="uid" placeholder="กรอก UID หรือไอดีผู้ใช้" />
+      </div>
+      <div class="form-group">
+        <label>ช่องทางการชำระเงิน</label>
+        <ul class="payment-options">
+          <li>
+            <label>
+              <input type="radio" name="payment" value="bank" checked />
+              ธนาคารโอนเงิน
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="payment" value="promptpay" />
+              PromptPay QR Code
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="payment" value="truemoney" />
+              TrueMoney Wallet
+            </label>
+          </li>
+        </ul>
+      </div>
+
+      <hr />
+
+      <h2>💎 3. เลือกแพ็กเกจสินค้า</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ไอเทมในเกม</th>
+            <th>ราคาปกติ</th>
+            <th>ราคาโปรโมชัน</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>50 Diamonds</td>
+            <td>฿50</td>
+            <td>฿45</td>
+          </tr>
+          <tr>
+            <td>100 Diamonds</td>
+            <td>฿100</td>
+            <td>฿90</td>
+          </tr>
+          <tr>
+            <td>500 Diamonds</td>
+            <td>฿500</td>
+            <td>฿420</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr />
+
+      <blockquote>
+        <strong>⚠️ หมายเหตุสำคัญ:</strong>
+        กรุณาตรวจสอบ UID และชื่อตัวละครให้ถูกต้องก่อนกดปุ่มยืนยัน
+        ทางเว็บจะไม่รับผิดชอบหากกรอกไอดีผิดพลาด
+      </blockquote>
     </div>
-
-    <hr />
-
-    <h2>💎 3. เลือกแพ็กเกจสินค้า</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>ไอเทมในเกม</th>
-          <th>ราคาปกติ</th>
-          <th>ราคาโปรโมชัน</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>50 Diamonds</td>
-          <td>฿50</td>
-          <td>฿45</td>
-        </tr>
-        <tr>
-          <td>100 Diamonds</td>
-          <td>฿100</td>
-          <td>฿90</td>
-        </tr>
-        <tr>
-          <td>500 Diamonds</td>
-          <td>฿500</td>
-          <td>฿420</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <hr />
-
-    <blockquote>
-      <strong>⚠️ หมายเหตุสำคัญ:</strong>
-      กรุณาตรวจสอบ UID และชื่อตัวละครให้ถูกต้องก่อนกดปุ่มยืนยัน
-      ทางเว็บจะไม่รับผิดชอบหากกรอกไอดีผิดพลาด
-    </blockquote>
-
-  </div>
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
