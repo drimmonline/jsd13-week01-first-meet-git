@@ -10,9 +10,34 @@
     <nav class="navbar">
       <div class="logo">🎮 TopUp Game</div>
       <ul class="nav-links">
+        <li class="search-container">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="ค้นหา.."
+            id="searchInput"
+          />
+          <!-- ไอคอนแว่นขยายสีเทาเข้ม วางไว้ข้างหลัง (ด้านขวา) -->
+          <button type="button" id="searchBtn" class="search-button-wrapper">
+            <svg
+              class="search-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </li>
+
         <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Project</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Contact</a></li>
         <li><a href="#">Login</a></li>
       </ul>
       <button class="btn-login">Login</button>
@@ -20,7 +45,7 @@
 
     <div class="container">
       <h1>🎮 เว็บไซต์เติมเกม</h1>
-      <p class="subtitle">
+      <p class="subtitle" id="topup">
         บริการเติมเกมออนไลน์ 24 ชั่วโมง สะดวกรวดเร็ว ปลอดภัย
       </p>
 
@@ -28,12 +53,10 @@
 
       <h2>🕹️ 1. เลือกเกมที่ต้องการเติม</h2>
       <ul class="game-list">
-        <li><strong>เกมที่ 1:</strong> ROV</li>
-        <li><strong>เกมที่ 2:</strong> PUBG Mobile</li>
+        <li><strong>เกมที่ 1:</strong> Roblox</li>
+        <li><strong>เกมที่ 2:</strong> Rov</li>
         <li><strong>เกมที่ 3:</strong> Free Fire</li>
       </ul>
-
-      <hr />
 
       <h2>📝 2. กรอกข้อมูลผู้ใช้งาน</h2>
       <div class="form-group">
@@ -67,41 +90,55 @@
       <hr />
 
       <h2>💎 3. เลือกแพ็กเกจสินค้า</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>ไอเทมในเกม</th>
-            <th>ราคาปกติ</th>
-            <th>ราคาโปรโมชัน</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>50 Diamonds</td>
-            <td>฿50</td>
-            <td>฿45</td>
-          </tr>
-          <tr>
-            <td>100 Diamonds</td>
-            <td>฿100</td>
-            <td>฿90</td>
-          </tr>
-          <tr>
-            <td>500 Diamonds</td>
-            <td>฿500</td>
-            <td>฿420</td>
-          </tr>
-        </tbody>
-      </table>
-
       <hr />
-
-      <blockquote>
-        <strong>⚠️ หมายเหตุสำคัญ:</strong>
-        กรุณาตรวจสอบ UID และชื่อตัวละครให้ถูกต้องก่อนกดปุ่มยืนยัน
-        ทางเว็บจะไม่รับผิดชอบหากกรอกไอดีผิดพลาด
-      </blockquote>
     </div>
+
+    <div class="card-item">
+      <div class="card">
+        <div class="container-2">
+          <!-- ส่วนรูปภาพสินค้า -->
+          <div class="product-img-box">
+            <img
+              src="./images/Robux_2019_Logo_gold.svg.webp"
+              alt="ipad-gen10"
+            />
+          </div>
+
+          <!-- ส่วนเนื้อหารายละเอียด -->
+          <h5 class="category">Roblox</h5>
+          <h2 class="product-title">15000 robux</h2>
+
+          <h4 class="price-box">
+            <del class="old-price">$5000</del>
+            <span class="current-price">$3000.00</span>
+          </h4>
+
+          <!-- ปุ่มกด (ปูทางไว้สำหรับทำ JavaScript DOM ตะกร้าสินค้า) -->
+          <button class="add-to-cart-btn">เพิ่มลงตะกร้า 🛒</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="container-2">
+          <!-- ส่วนรูปภาพสินค้า -->
+          <div class="product-img-box">
+            <img src="./images/rov-coupon.webp" alt="ipad-gen10" />
+          </div>
+
+          <!-- ส่วนเนื้อหารายละเอียด -->
+          <h5 class="category">Rov</h5>
+          <h2 class="product-title">1500ปอง</h2>
+
+          <h4 class="price-box">
+            <del class="old-price">$500</del>
+            <span class="current-price">$450.00</span>
+          </h4>
+
+          <!-- ปุ่มกด (ปูทางไว้สำหรับทำ JavaScript DOM ตะกร้าสินค้า) -->
+          <button class="add-to-cart-btn">เพิ่มลงตะกร้า 🛒</button>
+        </div>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
