@@ -5,6 +5,7 @@
 - have a navbar
   - Home about project login
   - button on the right lego on the left
+    -อยากให้มีตารางบันทึกรายรับรายจ่าย ในหน้าหลักของไฟล์html
 
 ---
 
