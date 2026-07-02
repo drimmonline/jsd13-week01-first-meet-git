@@ -6,6 +6,7 @@ let foodProduct = [
     productPrice: 59,
     Category: "FastFood",
     size: [
+      { name: "small", price: 59 },
       { name: "medium", price: 99 },
       { name: "large", price: 199 },
     ],
@@ -24,6 +25,7 @@ let foodProduct = [
     productPrice: 49,
     Category: "ThaiFood",
     size: [
+      { name: "small", price: 49 },
       { name: "medium", price: 99 },
       { name: "large", price: 199 },
     ],
@@ -167,13 +169,12 @@ let foodProduct = [
   {
     productId: "P012",
     productName: "KhaoSoi",
-    productNameTH: "ผัดกระเพราไก่",
-    productPrice: 60,
-    Category: "",
+    productNameTH: "หมูกรอบผัดพริกแกง",
+    productPrice: 80,
+    Category: "ThaiFood",
     size: [],
     addon: [],
-    image_url:
-      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=400&fit=crop",
+    image_url: "https://i.ytimg.com/vi/dBSJ32IaeNI/maxresdefault.jpg",
     Status: "Available",
   },
 ];
