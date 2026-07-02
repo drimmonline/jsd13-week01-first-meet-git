@@ -31,3 +31,38 @@ searchInput.addEventListener("keydown", (event) => {
     performSearch();
   }
 });
+
+function twoSum(nums, target) {
+  const map = new Map(); // เก็บค่าเป็น { ตัวเลข => index }
+
+  for (let i = 0; i < nums.length; i++) {
+    const currentNum = nums[i];
+    const complement = target - currentNum;
+    console.log("number: ", complement);
+
+    // ตรวจสอบว่ามีคู่แท้อยู่ใน Map หรือยัง
+    if (map.has(complement)) {
+      return [map.get(complement), i];
+    }
+
+    // ถ้ายังไม่มี ให้บันทึกตัวเลขปัจจุบันลง Map
+    map.set(currentNum, i);
+  }
+
+  return []; // ในโจทย์การันตีว่ามีคำตอบเสมอ จุดนี้จึงไม่ได้ถูกรัน
+}
+// 2. สร้างตัวแปรข้อมูลจำลอง (ตาม Example 1 ในโจทย์)
+const myNums = [2, 7, 11, 15];
+const myTarget = 18;
+
+// 3. เรียกใช้งานฟังก์ชันและเก็บผลลัพธ์ไว้ในตัวแปร
+const result = twoSum(myNums, myTarget);
+
+let objectName = [
+  { name: "Neeti", address: { state: "bangkok", pascode: 10310 } },
+  { name: "สมชาย", address: { state: "thailand", pascode: 99999 } },
+];
+
+objectName.map((value, key) => {
+  console.log(value.name);
+});
