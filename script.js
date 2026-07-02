@@ -79,20 +79,22 @@ function renderFoodCards(dataSource) {
   });
 
   // ผูก Event listener ให้ปุ่มเพิ่มลงตะกร้าทุกปุ่ม
-  document.querySelectorAll(".add-to-cart-btn:not([disabled])").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const productId = btn.dataset.id;
-      const product = foodProduct.find((p) => p.productId === productId);
-      if (!product) return;
+  document
+    .querySelectorAll(".add-to-cart-btn:not([disabled])")
+    .forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const productId = btn.dataset.id;
+        const product = foodProduct.find((p) => p.productId === productId);
+        if (!product) return;
 
-      const hasOptions = product.size.length > 0 || product.addon.length > 0;
-      if (hasOptions) {
-        openAddonModal(product);
-      } else {
-        addToCart(product, null, []);
-      }
+        const hasOptions = product.size.length > 0 || product.addon.length > 0;
+        if (hasOptions) {
+          openAddonModal(product);
+        } else {
+          addToCart(product, null, []);
+        }
+      });
     });
-  });
 }
 
 // ─── ระบบหมวดหมู่ + ค้นหา ───
@@ -127,7 +129,7 @@ function applyFilters() {
     result = result.filter(
       (p) =>
         p.productNameTH.toLowerCase().includes(searchKeyword) ||
-        p.productName.toLowerCase().includes(searchKeyword)
+        p.productName.toLowerCase().includes(searchKeyword),
     );
   }
 
@@ -145,7 +147,7 @@ function renderCategoryButtons() {
   container.innerHTML = allCats
     .map(
       (cat) =>
-        `<button class="cat-btn ${cat === "ทั้งหมด" ? "active" : ""}" data-cat="${cat}">${cat}</button>`
+        `<button class="cat-btn ${cat === "ทั้งหมด" ? "active" : ""}" data-cat="${cat}">${cat}</button>`,
     )
     .join("");
 
@@ -211,7 +213,9 @@ function addToCart(product, selectedSize, selectedAddons) {
     const addonMatch =
       item.selectedAddons.length === addons.length &&
       item.selectedAddons.every((a1) =>
-        addons.some((a2) => a1.addonitem === a2.addonitem && a1.price === a2.price)
+        addons.some(
+          (a2) => a1.addonitem === a2.addonitem && a1.price === a2.price,
+        ),
       );
     return sizeMatch && addonMatch;
   });
@@ -409,7 +413,9 @@ function renderModalBody() {
     radio.addEventListener("change", () => {
       const idx = +radio.value;
       selectedSize = modalProduct.size[idx];
-      modalBody.querySelectorAll(".option-item").forEach((el) => el.classList.remove("selected"));
+      modalBody
+        .querySelectorAll(".option-item")
+        .forEach((el) => el.classList.remove("selected"));
       radio.closest(".option-item").classList.add("selected");
     });
   });

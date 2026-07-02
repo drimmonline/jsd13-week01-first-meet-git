@@ -13,7 +13,8 @@ let foodProduct = [
       { addonitem: "cheese", price: 50 },
       { addonitem: "peperlonie", price: 20 },
     ],
-    image_url: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=400&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=400&fit=crop",
     Status: "Available",
   },
   {
@@ -27,7 +28,8 @@ let foodProduct = [
       { name: "large", price: 199 },
     ],
     addon: [],
-    image_url: "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=400&h=400&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=400&h=400&fit=crop",
     Status: "Available",
   },
   {
@@ -38,7 +40,8 @@ let foodProduct = [
     Category: "JapaneseFood",
     addon: [],
     size: [],
-    image_url: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&h=400&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&h=400&fit=crop",
     Status: "Outofstock",
   },
   {
@@ -49,7 +52,8 @@ let foodProduct = [
     Category: "ThaiFood",
     size: [],
     addon: [],
-    image_url: "https://images.unsplash.com/photo-1548943487-a2e4e43b4853?w=400&h=400&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1548943487-a2e4e43b4853?w=400&h=400&fit=crop",
     Status: "Available",
   },
   {
@@ -60,7 +64,8 @@ let foodProduct = [
     Category: "ThaiFood",
     size: [],
     addon: [],
-    image_url: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=400&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=400&fit=crop",
     Status: "Available",
   },
   {
@@ -71,7 +76,8 @@ let foodProduct = [
     Category: "ThaiFood",
     size: [],
     addon: [],
-    image_url: "https://images.unsplash.com/photo-1559847844-5315695dadae?w=400&h=400&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1559847844-5315695dadae?w=400&h=400&fit=crop",
     Status: "Available",
   },
   {
@@ -82,7 +88,8 @@ let foodProduct = [
     Category: "ThaiFood",
     size: [],
     addon: [],
-    image_url: "https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?w=400&h=400&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?w=400&h=400&fit=crop",
     Status: "Available",
   },
   {
@@ -93,18 +100,20 @@ let foodProduct = [
     Category: "ThaiFood",
     size: [],
     addon: [],
-    image_url: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=400&h=400&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=400&h=400&fit=crop",
     Status: "Available",
   },
   {
     productId: "P009",
-    productName: "MooPing",
-    productNameTH: "หมูปิ้ง",
+    productName: "stek",
+    productNameTH: "สเต็ก",
     productPrice: 30,
     Category: "ThaiFood",
     size: [],
     addon: [],
-    image_url: "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=400&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=400&fit=crop",
     Status: "Available",
   },
   {
@@ -115,7 +124,8 @@ let foodProduct = [
     Category: "ThaiFood",
     size: [],
     addon: [],
-    image_url: "https://images.unsplash.com/photo-1600891964092-4316c288032e?w=400&h=400&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1600891964092-4316c288032e?w=400&h=400&fit=crop",
     Status: "Available",
   },
   {
@@ -126,7 +136,8 @@ let foodProduct = [
     Category: "ThaiFood",
     size: [],
     addon: [],
-    image_url: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=400&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=400&fit=crop",
     Status: "Available",
   },
   {
@@ -137,7 +148,8 @@ let foodProduct = [
     Category: "ThaiFood",
     size: [],
     addon: [],
-    image_url: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=400&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=400&fit=crop",
     Status: "Available",
   },
   {
@@ -148,7 +160,8 @@ let foodProduct = [
     Category: "Dessert",
     size: [],
     addon: [],
-    image_url: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=400&fit=crop",
+    image_url:
+      "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=400&fit=crop",
     Status: "Available",
   },
 ];
