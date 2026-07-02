@@ -109,7 +109,7 @@ let foodProduct = [
     productName: "stek",
     productNameTH: "สเต็ก",
     productPrice: 30,
-    Category: "ThaiFood",
+    Category: "FrenchFood",
     size: [],
     addon: [],
     image_url:
@@ -162,6 +162,18 @@ let foodProduct = [
     addon: [],
     image_url:
       "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=400&fit=crop",
+    Status: "Available",
+  },
+  {
+    productId: "P012",
+    productName: "KhaoSoi",
+    productNameTH: "ผัดกระเพราไก่",
+    productPrice: 60,
+    Category: "",
+    size: [],
+    addon: [],
+    image_url:
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=400&fit=crop",
     Status: "Available",
   },
 ];

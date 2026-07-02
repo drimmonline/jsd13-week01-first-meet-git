@@ -141,7 +141,16 @@ function renderCategoryButtons() {
   const container = document.getElementById("categoryFilter");
   if (!container) return;
 
-  const cats = [...new Set(foodProduct.map((p) => p.Category))];
+  // 1. ดึงเฉพาะ Category ที่มีค่าจริง ๆ (ไม่เป็น undefined, null, หรือตารางเปล่า)
+  const cats = [...new Set(foodProduct.map((p) => p.Category).filter(Boolean))];
+
+  // 2. ถ้าไม่มีหมวดหมู่เลย (ความยาวเป็น 0) ให้ล้างข้อมูลใน container แล้วจบการทำงานทันที
+  if (cats.length === 0) {
+    container.innerHTML = "";
+    return;
+  }
+
+  // 3. ถ้ามีหมวดหมู่ ค่อยสร้างปุ่ม "ทั้งหมด" และปุ่มอื่น ๆ ตามปกติ
   const allCats = ["ทั้งหมด", ...cats];
 
   container.innerHTML = allCats
