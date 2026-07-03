@@ -9,10 +9,16 @@
   <body>
     <nav class="navbar">
       <div class="logo">Masari Restaurant</div>
-      <ul class="nav-links">
+      <button class="hamburger" id="hamburger" aria-label="เมนู">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="orderfood.html">Order</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li class="nav-cart-link"><a href="#" id="navCartLink">🛒 ตะกร้าสินค้า</a></li>
       </ul>
       <div class="cart-icon" id="cartIcon">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -61,6 +67,8 @@
     </div>
 
     <div class="card-item"></div>
+
+    <div id="pagination" class="pagination"></div>
 
     <footer class="footer" id="contact">
       <div class="footer-content">

@@ -44,16 +44,30 @@ objectName.map((value, key) => {
 });
 
 // ─────────────────────────────────────────────
+//  Pagination state
+// ─────────────────────────────────────────────
+const ITEMS_PER_PAGE = 8;
+let currentPage = 1;
+let filteredData = [];
+
+// ─────────────────────────────────────────────
 // แสดงการ์ดสินค้าจาก foodProduct พร้อมระบบค้นหา
 // ─────────────────────────────────────────────
-function renderFoodCards(dataSource) {
+function renderFoodCards(dataSource, page = 1) {
   const cardContainer = document.querySelector(".card-item");
   if (!cardContainer) return;
 
-  cardContainer.innerHTML = "";
   const items = dataSource || foodProduct;
+  filteredData = items;
+  currentPage = page;
 
-  items.forEach((product) => {
+  const totalPages = Math.ceil(filteredData.length / ITEMS_PER_PAGE) || 1;
+  const start = (currentPage - 1) * ITEMS_PER_PAGE;
+  const pageItems = filteredData.slice(start, start + ITEMS_PER_PAGE);
+
+  cardContainer.innerHTML = "";
+
+  pageItems.forEach((product) => {
     const card = document.createElement("div");
     card.className = "card";
 
@@ -95,6 +109,40 @@ function renderFoodCards(dataSource) {
         }
       });
     });
+
+  renderPagination(totalPages);
+}
+
+// ─── Pagination component ───
+function renderPagination(totalPages) {
+  const container = document.getElementById("pagination");
+  if (!container) return;
+
+  if (totalPages <= 1) {
+    container.innerHTML = "";
+    return;
+  }
+
+  let html = "";
+  html += `<button class="page-btn" data-page="${currentPage - 1}" ${currentPage === 1 ? "disabled" : ""}>‹</button>`;
+
+  for (let i = 1; i <= totalPages; i++) {
+    html += `<button class="page-btn ${i === currentPage ? "active" : ""}" data-page="${i}">${i}</button>`;
+  }
+
+  html += `<button class="page-btn" data-page="${currentPage + 1}" ${currentPage === totalPages ? "disabled" : ""}>›</button>`;
+
+  container.innerHTML = html;
+
+  container.querySelectorAll(".page-btn:not([disabled])").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const page = parseInt(btn.dataset.page, 10);
+      if (page >= 1 && page <= totalPages) {
+        renderFoodCards(filteredData, page);
+        document.querySelector(".card-item").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
 }
 
 // ─── ระบบหมวดหมู่ + ค้นหา ───
@@ -133,7 +181,7 @@ function applyFilters() {
     );
   }
 
-  renderFoodCards(result);
+  renderFoodCards(result, 1);
 }
 
 // ─── สร้างปุ่มหมวดหมู่จากข้อมูลจริง ───
@@ -167,6 +215,39 @@ function renderCategoryButtons() {
 
 renderCategoryButtons();
 renderFoodCards(foodProduct);
+
+// ═════════════════════════════════════════════
+//  Hamburger Menu
+// ═════════════════════════════════════════════
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+if (hamburger && navLinks) {
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navLinks.classList.toggle("active");
+  });
+
+  document.querySelectorAll(".nav-links a:not(#navCartLink)").forEach((link) => {
+    link.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      navLinks.classList.remove("active");
+    });
+  });
+
+  const navCartLink = document.getElementById("navCartLink");
+  if (navCartLink) {
+    navCartLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      hamburger.classList.remove("active");
+      navLinks.classList.remove("active");
+      if (typeof cartOverlay !== "undefined" && cartOverlay) {
+        cartOverlay.classList.add("active");
+        renderCart();
+      }
+    });
+  }
+}
 
 // ═════════════════════════════════════════════
 //  ระบบตะกร้าสินค้า (Cart System)
