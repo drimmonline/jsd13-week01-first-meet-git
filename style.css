@@ -868,13 +868,22 @@ blockquote {
 }
 
 /* 3. ตกแต่งและจัดตำแหน่งไอคอนแว่นขยาย */
-.search-icon {
+.search-button-wrapper {
   position: absolute;
-  right: 15px; /* ดันให้อยู่ห่างจากขอบขวา 15px */
-  top: 37%; /* จัดกึ่งกลางแนวตั้ง */
-  transform: translateY(-50%); /* ดึงกลับขึ้นมาครึ่งหนึ่งเพื่อให้บาลานซ์พอดี */
-  width: 20px; /* ขนาดความกว้างของแว่นขยาย */
-  height: 20px; /* ขนาดความสูงของแว่นขยาย */
-  color: #666666; /* เปลี่ยนสีหัวแว่นขยายตามต้องการ */
-  pointer-events: none; /* เพื่อให้เวลาผู้ใช้คลิกโดนไอคอน ก็ยังโฟกัสที่ช่องพิมพ์ได้ปกติ */
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666666;
+}
+.search-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
 }
