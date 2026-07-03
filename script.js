@@ -296,15 +296,19 @@ function renderCart() {
       <div class="cart-item">
         <img class="cart-item-img" src="${item.image_url}" alt="${item.productName}" />
         <div class="cart-item-info">
-          <div class="cart-item-name">${item.productName}</div>
+          <div class="cart-item-row">
+            <div class="cart-item-name">${item.productName}</div>
+            <div class="cart-item-actions">
+              <div class="cart-item-qty">
+                <button class="qty-btn" data-index="${i}" data-delta="-1">−</button>
+                <span class="qty-num">${item.quantity}</span>
+                <button class="qty-btn" data-index="${i}" data-delta="1">+</button>
+              </div>
+              <button class="cart-item-remove" data-index="${i}">ลบ</button>
+            </div>
+          </div>
           ${detail ? `<div class="cart-item-detail">${detail}</div>` : ""}
           <div class="cart-item-price">$${calcItemPrice(item).toFixed(2)}</div>
-          <div class="cart-item-qty">
-            <button class="qty-btn" data-index="${i}" data-delta="-1">−</button>
-            <span class="qty-num">${item.quantity}</span>
-            <button class="qty-btn" data-index="${i}" data-delta="1">+</button>
-            <button class="cart-item-remove" data-index="${i}">ลบ</button>
-          </div>
         </div>
       </div>
     `;

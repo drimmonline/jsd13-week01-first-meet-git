@@ -492,18 +492,31 @@ blockquote {
 .cart-item-info {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.cart-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
 }
 .cart-item-name {
   font-size: 0.95rem;
   font-weight: 600;
   color: #1e293b;
-  margin-bottom: 2px;
   font-family: "Inter", sans-serif;
+}
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
 }
 .cart-item-detail {
   font-size: 0.8rem;
   color: #64748b;
-  margin-bottom: 4px;
   font-family: "Inter", sans-serif;
 }
 .cart-item-price {
@@ -515,8 +528,7 @@ blockquote {
 .cart-item-qty {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 4px;
+  gap: 2px;
 }
 .qty-btn {
   width: 28px;
@@ -549,7 +561,6 @@ blockquote {
   font-size: 0.8rem;
   cursor: pointer;
   padding: 4px;
-  align-self: flex-start;
 }
 .cart-item-remove:hover {
   text-decoration: underline;
