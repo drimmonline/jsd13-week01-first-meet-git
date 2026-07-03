@@ -371,7 +371,7 @@ blockquote {
 
 .add-to-cart-btn {
   padding: 12px;
-  background-color: #1e293b;
+  background-color: #f97316;
   color: #ffffff;
   border: none;
   border-radius: 8px;
@@ -384,7 +384,12 @@ blockquote {
 }
 
 .add-to-cart-btn:hover {
-  background-color: #0ea5e9; /* เปลี่ยนเป็นสีฟ้าเวลาเมาส์ชี้ */
+  background-color: #ea580c;
+}
+
+.add-to-cart-btn:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
 }
 
 /* แถบกรองหมวดหมู่ + ค้นหา */
@@ -886,4 +891,34 @@ blockquote {
   width: 20px;
   height: 20px;
   display: block;
+}
+
+.fly-to-cart {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff7ed;
+  border: 2px solid #f97316;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  pointer-events: none;
+  animation: flyCart 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes flyCart {
+  0% {
+    transform: translate(var(--start-x), var(--start-y)) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(var(--mid-x), var(--mid-y)) scale(1.3);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--end-x), var(--end-y)) scale(0.5);
+    opacity: 0.4;
+  }
 }

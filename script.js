@@ -84,7 +84,7 @@ function renderFoodCards(dataSource, page = 1) {
           <span class="current-price">$${product.productPrice.toFixed(2)}</span>
         </h4>
         <button class="add-to-cart-btn" data-id="${product.productId}" ${isOutOfStock ? "disabled" : ""}>
-          ${isOutOfStock ? "หมดชั่วคราว" : "เพิ่มลงตะกร้า 🛒"}
+          ${isOutOfStock ? "หมดชั่วคราว" : `เพิ่มลงตะกร้า <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-left:4px;"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>`}
         </button>
       </div>
     `;
@@ -103,9 +103,10 @@ function renderFoodCards(dataSource, page = 1) {
 
         const hasOptions = product.size.length > 0 || product.addon.length > 0;
         if (hasOptions) {
-          openAddonModal(product);
+          openAddonModal(product, btn);
         } else {
           addToCart(product, null, []);
+          flyToCart(btn);
         }
       });
     });
@@ -247,6 +248,42 @@ if (hamburger && navLinks) {
       }
     });
   }
+}
+
+// ═════════════════════════════════════════════
+//  Fly-to-Cart Animation
+// ═════════════════════════════════════════════
+function flyToCart(btnEl) {
+  const cartIcon = document.getElementById("cartIcon");
+  if (!btnEl || !cartIcon) return;
+
+  const start = btnEl.getBoundingClientRect();
+  const end = cartIcon.getBoundingClientRect();
+
+  const flyer = document.createElement("div");
+  flyer.className = "fly-to-cart";
+  flyer.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>`;
+
+  const midX = (start.left + end.left) / 2;
+  const midY = start.top - 60;
+  const dx = end.left - start.left;
+  const dy = end.top - start.top;
+
+  flyer.style.setProperty("--start-x", "0px");
+  flyer.style.setProperty("--start-y", "0px");
+  flyer.style.setProperty("--mid-x", `${midX - start.left}px`);
+  flyer.style.setProperty("--mid-y", `${midY - start.top}px`);
+  flyer.style.setProperty("--end-x", `${dx}px`);
+  flyer.style.setProperty("--end-y", `${dy}px`);
+
+  flyer.style.left = `${start.left}px`;
+  flyer.style.top = `${start.top}px`;
+
+  document.body.appendChild(flyer);
+
+  flyer.addEventListener("animationend", () => {
+    flyer.remove();
+  });
 }
 
 // ═════════════════════════════════════════════
@@ -440,9 +477,12 @@ let modalProduct = null;
 let selectedSize = null;
 let selectedAddons = [];
 
+let modalTriggerBtn = null;
+
 // ─── เปิด modal ───
-function openAddonModal(product) {
+function openAddonModal(product, triggerBtn) {
   modalProduct = product;
+  modalTriggerBtn = triggerBtn || null;
   selectedSize = product.size.length > 0 ? product.size[0] : null;
   selectedAddons = [];
 
@@ -533,6 +573,7 @@ function renderModalBody() {
 modalConfirm.addEventListener("click", () => {
   if (!modalProduct) return;
   addToCart(modalProduct, selectedSize, selectedAddons);
+  if (modalTriggerBtn) flyToCart(modalTriggerBtn);
   closeAddonModal();
 });
 

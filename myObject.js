@@ -127,7 +127,7 @@ let foodProduct = [
     size: [],
     addon: [],
     image_url:
-      "https://images.unsplash.com/photo-1600891964092-4316c288032e?w=400&h=400&fit=crop",
+      "https://static.thairath.co.th/media/dFQROr7oWzulq5Fa6rpOetuLxWtDW4pGVxTIT2bhWuo8KUmcxGVIisEysxd9YsSVQ0b.jpg",
     Status: "Available",
   },
   {
@@ -151,7 +151,7 @@ let foodProduct = [
     size: [],
     addon: [],
     image_url:
-      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=400&fit=crop",
+      "https://static.thairath.co.th/media/dFQROr7oWzulq5Fa5nRPZVuR3wMxSXPiJRqDCxTALfAI7MxBpaH470UYN43WmS2Cr3z.jpg",
     Status: "Available",
   },
   {
