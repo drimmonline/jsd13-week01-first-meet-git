@@ -78,7 +78,7 @@ function renderFoodCards(dataSource, page = 1) {
         <div class="product-img-box">
           <img src="${product.image_url}" alt="${product.productName}" />
         </div>
-        <h5 class="category">${product.Category}</h5>
+        <h5 class="category">${product.CategoryTH || product.Category}</h5>
         <h2 class="product-title">${product.productNameTH}</h2>
         <h4 class="price-box">
           <span class="current-price">$${product.productPrice.toFixed(2)}</span>
@@ -155,6 +155,27 @@ let searchKeyword = "";
 // กรองการ์ดตามคำค้นหา
 function filterFoodCards(keyword) {
   searchKeyword = keyword;
+
+  if (keyword) {
+    const matches = foodProduct.filter(
+      (p) =>
+        p.productNameTH.toLowerCase().includes(keyword) ||
+        p.productName.toLowerCase().includes(keyword),
+    );
+    if (matches.length > 0) {
+      const cat = matches[0].Category;
+      activeCategory = cat;
+      document.querySelectorAll(".cat-btn").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.cat === cat);
+      });
+    }
+  } else {
+    activeCategory = "ทั้งหมด";
+    document.querySelectorAll(".cat-btn").forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.cat === "ทั้งหมด");
+    });
+  }
+
   applyFilters();
 }
 
@@ -192,24 +213,24 @@ function renderCategoryButtons() {
   const container = document.getElementById("categoryFilter");
   if (!container) return;
 
-  // 1. ดึงเฉพาะ Category ที่มีค่าจริง ๆ (ไม่เป็น undefined, null, หรือตารางเปล่า)
-  const cats = [...new Set(foodProduct.map((p) => p.Category).filter(Boolean))];
+  const catMap = {};
+  foodProduct.forEach((p) => {
+    if (p.Category && p.CategoryTH && !catMap[p.Category]) {
+      catMap[p.Category] = p.CategoryTH;
+    }
+  });
+  const catEntries = Object.entries(catMap);
 
-  // 2. ถ้าไม่มีหมวดหมู่เลย (ความยาวเป็น 0) ให้ล้างข้อมูลใน container แล้วจบการทำงานทันที
-  if (cats.length === 0) {
+  if (catEntries.length === 0) {
     container.innerHTML = "";
     return;
   }
 
-  // 3. ถ้ามีหมวดหมู่ ค่อยสร้างปุ่ม "ทั้งหมด" และปุ่มอื่น ๆ ตามปกติ
-  const allCats = ["ทั้งหมด", ...cats];
-
-  container.innerHTML = allCats
-    .map(
-      (cat) =>
-        `<button class="cat-btn ${cat === "ทั้งหมด" ? "active" : ""}" data-cat="${cat}">${cat}</button>`,
-    )
-    .join("");
+  let html = `<button class="cat-btn active" data-cat="ทั้งหมด">ทั้งหมด</button>`;
+  catEntries.forEach(([en, th]) => {
+    html += `<button class="cat-btn" data-cat="${en}">${th}</button>`;
+  });
+  container.innerHTML = html;
 
   container.querySelectorAll(".cat-btn").forEach((btn) => {
     btn.addEventListener("click", () => setCategory(btn.dataset.cat));

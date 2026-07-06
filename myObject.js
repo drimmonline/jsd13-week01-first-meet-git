@@ -5,6 +5,7 @@ let foodProduct = [
     productNameTH: "พิซซ่า",
     productPrice: 59,
     Category: "FastFood",
+    CategoryTH: "อาหารจานด่วน",
     size: [
       { name: "small", price: 59 },
       { name: "medium", price: 99 },
@@ -24,6 +25,7 @@ let foodProduct = [
     productNameTH: "ผัดไทย",
     productPrice: 49,
     Category: "ThaiFood",
+    CategoryTH: "อาหารไทย",
     size: [
       { name: "small", price: 49 },
       { name: "medium", price: 99 },
@@ -40,6 +42,7 @@ let foodProduct = [
     productNameTH: "ซูชิ",
     productPrice: 80,
     Category: "JapaneseFood",
+    CategoryTH: "อาหารญี่ปุ่น",
     addon: [],
     size: [],
     image_url:
@@ -52,6 +55,7 @@ let foodProduct = [
     productNameTH: "ต้มยำกุ้ง",
     productPrice: 89,
     Category: "ThaiFood",
+    CategoryTH: "อาหารไทย",
     size: [],
     addon: [],
     image_url:
@@ -64,6 +68,7 @@ let foodProduct = [
     productNameTH: "ข้าวผัด",
     productPrice: 45,
     Category: "ThaiFood",
+    CategoryTH: "อาหารไทย",
     size: [],
     addon: [],
     image_url:
@@ -76,6 +81,7 @@ let foodProduct = [
     productNameTH: "ส้มตำ",
     productPrice: 39,
     Category: "ThaiFood",
+    CategoryTH: "อาหารไทย",
     size: [],
     addon: [],
     image_url:
@@ -88,6 +94,7 @@ let foodProduct = [
     productNameTH: "ผัดกะเพรา",
     productPrice: 45,
     Category: "ThaiFood",
+    CategoryTH: "อาหารไทย",
     size: [],
     addon: [],
     image_url:
@@ -100,6 +107,7 @@ let foodProduct = [
     productNameTH: "แกงเขียวหวาน",
     productPrice: 55,
     Category: "ThaiFood",
+    CategoryTH: "อาหารไทย",
     size: [],
     addon: [],
     image_url:
@@ -112,6 +120,7 @@ let foodProduct = [
     productNameTH: "สเต็ก",
     productPrice: 30,
     Category: "FrenchFood",
+    CategoryTH: "อาหารฝรั่ง",
     size: [],
     addon: [],
     image_url:
@@ -124,6 +133,7 @@ let foodProduct = [
     productNameTH: "ข้าวมันไก่",
     productPrice: 45,
     Category: "ThaiFood",
+    CategoryTH: "อาหารไทย",
     size: [],
     addon: [],
     image_url:
@@ -136,6 +146,7 @@ let foodProduct = [
     productNameTH: "บะหมี่หมูแดง",
     productPrice: 40,
     Category: "ThaiFood",
+    CategoryTH: "อาหารไทย",
     size: [],
     addon: [],
     image_url:
@@ -148,6 +159,7 @@ let foodProduct = [
     productNameTH: "ข้าวซอย",
     productPrice: 55,
     Category: "ThaiFood",
+    CategoryTH: "อาหารไทย",
     size: [],
     addon: [],
     image_url:
@@ -160,6 +172,7 @@ let foodProduct = [
     productNameTH: "โรตี",
     productPrice: 35,
     Category: "Dessert",
+    CategoryTH: "ของหวาน",
     size: [],
     addon: [],
     image_url:
@@ -172,6 +185,7 @@ let foodProduct = [
     productNameTH: "หมูกรอบผัดพริกแกง",
     productPrice: 80,
     Category: "ThaiFood",
+    CategoryTH: "อาหารไทย",
     size: [],
     addon: [],
     image_url: "https://i.ytimg.com/vi/dBSJ32IaeNI/maxresdefault.jpg",
@@ -183,6 +197,7 @@ let foodProduct = [
     productNameTH: "ต้มยำกุ้งน้ำข้น",
     productPrice: 120,
     Category: "ThaiFood",
+    CategoryTH: "อาหารไทย",
     size: [],
     addon: [],
     image_url:
@@ -195,6 +210,7 @@ let foodProduct = [
     productNameTH: "ยำวุ้นเส้น",
     productPrice: 55,
     Category: "ThaiFood",
+    CategoryTH: "อาหารไทย",
     size: [],
     addon: [],
     image_url:
@@ -207,6 +223,7 @@ let foodProduct = [
     productNameTH: "ไข่เจียวหมูสับ",
     productPrice: 35,
     Category: "ThaiFood",
+    CategoryTH: "อาหารไทย",
     size: [],
     addon: [],
     image_url:
@@ -219,6 +236,7 @@ let foodProduct = [
     productNameTH: "เปาะเปี๊ยะทอด",
     productPrice: 40,
     Category: "ThaiFood",
+    CategoryTH: "อาหารไทย",
     size: [],
     addon: [],
     image_url:
@@ -231,6 +249,7 @@ let foodProduct = [
     productNameTH: "แฮมเบอร์เกอร์",
     productPrice: 89,
     Category: "FastFood",
+    CategoryTH: "อาหารจานด่วน",
     size: [],
     addon: [],
     image_url:
@@ -243,6 +262,7 @@ let foodProduct = [
     productNameTH: "เฟรนช์ฟรายส์",
     productPrice: 49,
     Category: "FastFood",
+    CategoryTH: "อาหารจานด่วน",
     size: [],
     addon: [],
     image_url:
@@ -255,6 +275,7 @@ let foodProduct = [
     productNameTH: "สปาเก็ตตี้คาโบนาร่า",
     productPrice: 99,
     Category: "FastFood",
+    CategoryTH: "อาหารจานด่วน",
     size: [],
     addon: [],
     image_url:
@@ -267,6 +288,7 @@ let foodProduct = [
     productNameTH: "ข้าวเหนียวมะม่วง",
     productPrice: 65,
     Category: "Dessert",
+    CategoryTH: "ของหวาน",
     size: [],
     addon: [],
     image_url:
@@ -279,6 +301,7 @@ let foodProduct = [
     productNameTH: "ไอศครีมรวมรส",
     productPrice: 45,
     Category: "Dessert",
+    CategoryTH: "ของหวาน",
     size: [],
     addon: [],
     image_url:
@@ -291,6 +314,7 @@ let foodProduct = [
     productNameTH: "ซาซิมิรวม",
     productPrice: 150,
     Category: "JapaneseFood",
+    CategoryTH: "อาหารญี่ปุ่น",
     size: [],
     addon: [],
     image_url:
