@@ -295,7 +295,7 @@ function updateActiveNav() {
   navLinks.forEach((link) => {
     link.classList.toggle(
       "active",
-      link.getAttribute("href") === `#${current}`
+      link.getAttribute("href") === `#${current}`,
     );
   });
 }
