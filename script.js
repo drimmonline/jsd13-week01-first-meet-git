@@ -140,7 +140,9 @@ function renderPagination(totalPages) {
       const page = parseInt(btn.dataset.page, 10);
       if (page >= 1 && page <= totalPages) {
         renderFoodCards(filteredData, page);
-        document.querySelector(".card-item").scrollIntoView({ behavior: "smooth", block: "start" });
+        document
+          .querySelector(".card-item")
+          .scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
   });
@@ -229,12 +231,22 @@ if (hamburger && navLinks) {
     navLinks.classList.toggle("active");
   });
 
-  document.querySelectorAll(".nav-links a:not(#navCartLink)").forEach((link) => {
-    link.addEventListener("click", () => {
-      hamburger.classList.remove("active");
-      navLinks.classList.remove("active");
+  document
+    .querySelectorAll(".nav-links a:not(#navCartLink)")
+    .forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href");
+        if (href && href.startsWith("#")) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+        hamburger.classList.remove("active");
+        navLinks.classList.remove("active");
+      });
     });
-  });
 
   const navCartLink = document.getElementById("navCartLink");
   if (navCartLink) {
@@ -249,6 +261,25 @@ if (hamburger && navLinks) {
     });
   }
 }
+
+// ─── Scroll spy: highlight active nav link ───
+function updateActiveNav() {
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-links a[href^='#']");
+  let current = "";
+  sections.forEach((sec) => {
+    const top = sec.getBoundingClientRect().top;
+    if (top <= 200) current = sec.id;
+  });
+  navLinks.forEach((link) => {
+    link.classList.toggle(
+      "active",
+      link.getAttribute("href") === `#${current}`
+    );
+  });
+}
+window.addEventListener("scroll", updateActiveNav);
+window.addEventListener("load", updateActiveNav);
 
 // ═════════════════════════════════════════════
 //  Fly-to-Cart Animation
@@ -292,6 +323,21 @@ function flyToCart(btnEl) {
 // state กลางของตะกร้า
 let cart = [];
 
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function loadCart() {
+  try {
+    const saved = localStorage.getItem("cart");
+    if (saved) {
+      cart = JSON.parse(saved);
+      updateCartBadge();
+    }
+  } catch (e) {
+    cart = [];
+  }
+}
 // ─── DOM references ───
 const cartIcon = document.getElementById("cartIcon");
 const cartOverlay = document.getElementById("cartOverlay");
@@ -302,6 +348,8 @@ const addonModal = document.getElementById("addonModal");
 const modalClose = document.getElementById("modalClose");
 const modalBody = document.getElementById("modalBody");
 const modalConfirm = document.getElementById("modalConfirm");
+
+loadCart();
 
 // ─── เปิด/ปิด overlay ตะกร้า ───
 cartIcon.addEventListener("click", () => {
@@ -362,12 +410,14 @@ function addToCart(product, selectedSize, selectedAddons) {
   }
 
   updateCartBadge();
+  saveCart();
 }
 
 // ─── ลบรายการออกจาก cart ───
 function removeCartItem(index) {
   cart.splice(index, 1);
   updateCartBadge();
+  saveCart();
   renderCart();
 }
 
@@ -378,6 +428,7 @@ function changeQty(index, delta) {
     cart.splice(index, 1);
   }
   updateCartBadge();
+  saveCart();
   renderCart();
 }
 
